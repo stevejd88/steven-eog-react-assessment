@@ -25,7 +25,6 @@ const LineGraphContainer = ({ dataSet }) => {
   return (
     <Query query={GET_DATA} variables={{ metricName: dataSet, after: newAfter }}>
       {({ loading, error, data }) => {
-        console.log(data);
         if (loading) return 'Loading...';
         if (error) return error.message;
 
