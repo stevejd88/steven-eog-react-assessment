@@ -2,8 +2,11 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 
-import DataSelect from './DataSelect'
-import LineGraphContainer from './line-graph-container'
+import DataSelect from './DataSelect';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import LineGraphContainer from './line-graph-container';
+import { selectDataSet } from '../redux/dataSet/dataSet.selectors';
 
 const useStyles = makeStyles({
   graphDiv: {
@@ -11,17 +14,19 @@ const useStyles = makeStyles({
   },
 });
 
-
-const Dashboard = () => {
+const Dashboard = ({ dataSet }) => {
   const classes = useStyles();
   return (
     <Container className={classes.graphDiv}>
-      <h1>Hello</h1>
+      <h1>{dataSet ? dataSet : 'Select a Metric'}</h1>
       <DataSelect />
       <LineGraphContainer />
-    
     </Container>
-  )
-}
+  );
+};
 
-export default Dashboard;
+const mapStateToProps = createStructuredSelector({
+  dataSet: selectDataSet,
+});
+
+export default connect(mapStateToProps)(Dashboard);

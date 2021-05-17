@@ -7,10 +7,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Wrapper from './components/Wrapper';
-import NowWhat from './components/NowWhat';
 import Dashboard from './components/Dashboard';
 
-import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache, gql } from '@apollo/client';
+import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 
 const httpLink = createHttpLink({
   uri: 'https://react.eogresources.com/graphql',
@@ -38,21 +37,6 @@ const theme = createMuiTheme({
   },
 });
 
-// client
-//   .query({
-//     query: gql`
-//       {
-//         getMeasurements(input: { metricName: "oilTemp" }) {
-//           metric
-//           at
-//           value
-//           unit
-//         }
-//       }
-//     `,
-//   })
-//   .then(res => console.log(res));
-
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
@@ -60,7 +44,6 @@ const App = () => (
       <Provider store={store}>
         <Wrapper>
           <Header />
-          {/* <NowWhat /> */}
           <Dashboard />
           <ToastContainer />
         </Wrapper>
