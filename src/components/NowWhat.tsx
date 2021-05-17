@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Card from '@material-ui/core/Card';
 import CardHeader from './CardHeader';
 import Typography from '@material-ui/core/Typography';
@@ -8,6 +9,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from './Avatar';
+
+// import LineGraph from './LineGraph';
+import LineGraphContainer from './line-graph-container';
 
 const useStyles = makeStyles({
   card: {
@@ -19,6 +23,7 @@ export default () => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
+      <LineGraphContainer />
       <CardHeader title="OK, steven, you're all setup. Now What?" />
       <CardContent>
         <List>

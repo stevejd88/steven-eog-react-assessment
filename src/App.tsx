@@ -9,6 +9,25 @@ import Header from './components/Header';
 import Wrapper from './components/Wrapper';
 import NowWhat from './components/NowWhat';
 
+import {
+  ApolloProvider,
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+  gql
+} from '@apollo/client';
+
+const httpLink = createHttpLink({
+  uri: 'https://react.eogresources.com/graphql'
+})
+
+const cache = new InMemoryCache();
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache
+})
+
 const store = createStore();
 const theme = createMuiTheme({
   palette: {
@@ -27,13 +46,15 @@ const theme = createMuiTheme({
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <CssBaseline />
-    <Provider store={store}>
-      <Wrapper>
-        <Header />
-        <NowWhat />
-        <ToastContainer />
-      </Wrapper>
-    </Provider>
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <Wrapper>
+          <Header />
+          <NowWhat />
+          <ToastContainer />
+        </Wrapper>
+      </Provider>
+    </ApolloProvider> 
   </MuiThemeProvider>
 );
 
