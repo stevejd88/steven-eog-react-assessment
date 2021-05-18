@@ -8,10 +8,12 @@ export const convertMS = (milliseconds, time) => {
 
   hour = hour % 24;
   if (time === 'hour') {
-    if (hour > 12) {
+    if (hour > 17) {
       return hour - 17;
-    } else {
+    } else if (hour > 5 && hour < 17) {
       return hour - 5;
+    } else if (hour < 6) {
+      return hour + 7;
     }
   } else if (time === 'minute') {
     return minute;
