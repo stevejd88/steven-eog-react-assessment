@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect';
 import { gql } from '@apollo/client';
 import { Query } from '@apollo/client/react/components';
 
-import { selectDataSet } from '../redux/dataSet/dataSet.selectors';
+import { selectDataSet } from '../../redux/dataSet/dataSet.selectors';
 
 import LineGraph from './LineGraph';
 

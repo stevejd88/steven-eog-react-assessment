@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
-import { convertMS } from '../App.utils';
+import { convertMS } from '../../App.utils';
 
 function LineGraph({ data }) {
   const chartData = [...data];
@@ -17,7 +17,7 @@ function LineGraph({ data }) {
 
   return (
     <div>
-      <LineChart width={1000} height={800} data={newData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+      <LineChart width={800} height={600} data={newData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
         <Line type="monotone" dataKey="value" stroke="#8884d8" />
         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
         <Tooltip />

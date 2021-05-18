@@ -2,7 +2,7 @@ import React from 'react';
 import { Select, MenuItem } from '@material-ui/core';
 import { connect } from 'react-redux';
 
-import { setData } from '../redux/dataSet/dataSet.actions';
+import { setData } from '../../redux/dataSet/dataSet.actions';
 
 const DataSelect = ({ setData }) => {
   const handleSubmit = e => {

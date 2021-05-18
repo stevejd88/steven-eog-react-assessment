@@ -10,9 +10,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from './Avatar';
 
-// import LineGraph from './LineGraph';
-import LineGraphContainer from './line-graph-container';
-
 const useStyles = makeStyles({
   card: {
     margin: '5% 25%',
@@ -23,7 +20,6 @@ export default () => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <LineGraphContainer />
       <CardHeader title="OK, steven, you're all setup. Now What?" />
       <CardContent>
         <List>
